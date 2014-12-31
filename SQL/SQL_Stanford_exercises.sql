@@ -52,8 +52,8 @@ where mID in (select mID from rating where stars >= 4)
 order by year
 
 3) select distinct title
-from Movie, Rating
-where Movie.mID not in (select mID from Rating)
+from Movie
+where mID not in (select mID from Rating)
 
 4) select name
 from Reviewer
