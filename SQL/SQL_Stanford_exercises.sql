@@ -64,7 +64,31 @@ from Reviewer, Movie, Rating
 where Movie.mID = Rating.mID and Reviewer.rID = Rating.rID
 order by name, title, stars
 
-6)
+6) SELECT
+   R.name,
+   M.title
+FROM
+   reviewer AS R, -- comma/both inner join & natural join produce the correct result 
+   movie AS M
+      WHERE EXISTS ( -- there is at least one rating
+         SELECT *
+         FROM rating AS G
+         WHERE
+            -- by the reviewer and movie in question
+            R.rID = G.rID
+            AND M.mID = G.mID
+            AND EXISTS ( -- for which another rating exists
+               SELECT *
+               FROM rating AS G2
+               WHERE
+                  -- for the same reviewer and movie
+                  R.rID = G2.rID
+                  AND M.mID = G2.mID
+                  AND G.stars < G2.stars -- but rated higher
+                  AND G.ratingDate < G2.ratingDate -- and later
+            )
+      )
+; -- found and modified from stackoverflow
 
 7)
 
