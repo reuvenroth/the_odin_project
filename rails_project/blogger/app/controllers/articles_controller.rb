@@ -8,14 +8,20 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.find(params[:id])
 	end
-	# add a new article from input
+	# go to the "add a new article" page /article/new
 	def new
 		@article = Article.new
 	end
-	# add a new article into the database
+	# add a new article from input into the database
 	def create
 		@article = Article.new(article_params)
 		@article.save
+
+		redirect_to article_path(@article)
+	end
+	# "destroy" a.k.a. delete the current article page & go home
+	def destroy
+		show.destroy
 
 		redirect_to article_path(@article)
 	end
