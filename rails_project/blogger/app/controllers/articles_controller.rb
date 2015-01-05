@@ -23,6 +23,6 @@ class ArticlesController < ApplicationController
 	def destroy
 		show.destroy
 
-		redirect_to articles_path(index)
+		redirect_to articles_path
 	end
 end
