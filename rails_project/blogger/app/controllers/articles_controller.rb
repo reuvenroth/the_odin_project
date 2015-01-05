@@ -26,4 +26,8 @@ class ArticlesController < ApplicationController
 	#Don't add params of (index) or (@article) or there'll be added url code.
 		redirect_to articles_path
 	end
+	# edit...now!
+	def edit
+		show
+	end
 end
