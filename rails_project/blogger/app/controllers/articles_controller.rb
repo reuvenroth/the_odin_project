@@ -22,7 +22,8 @@ class ArticlesController < ApplicationController
 	# "destroy" a.k.a. delete the current article page & go home
 	def destroy
 		show.destroy
-
+	#note: don't go to article_path() since the article is already removed.
+	#Don't add params of (index) or (@article) or there'll be added url code.
 		redirect_to articles_path
 	end
 end
