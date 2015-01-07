@@ -4,9 +4,11 @@ class ArticlesController < ApplicationController
 	def index
 		@articles = Article.all
 	end
-	# retrieve & display all articles
+	# retrieve & display all articles (now with comments)
 	def show
 		@article = Article.find(params[:id])
+		@comment = Comment.new
+		@comment.article_id = @article.id
 	end
 	# go to the "add a new article" page /article/new
 	def new
@@ -23,7 +25,8 @@ class ArticlesController < ApplicationController
 	end
 	# "destroy" a.k.a. delete the current article page & go home
 	def destroy
-		show.destroy
+		@article = Article.find(params[:id])
+		@article.destroy
 		#Displays delete notice for each article
 		flash.notice = "Article '#{@article.title}' has been deleted!"
 
