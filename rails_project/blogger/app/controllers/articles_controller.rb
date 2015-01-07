@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
 	def create
 		@article = Article.new(article_params)
 		@article.save
-
+		#Displays create notice for each article
 		flash.notice = "Article '#{@article.title}' has been created!"
 
 		redirect_to article_path(@article)
@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
 	# "destroy" a.k.a. delete the current article page & go home
 	def destroy
 		show.destroy
-
+		#Displays delete notice for each article
 		flash.notice = "Article '#{@article.title}' has been deleted!"
 
 	#note: don't go to article_path() since the article is already removed.
@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
 	def update
 		@article = Article.find(params[:id])
 		@article.update(article_params)
-
+		#Displays update notice for each article
 		flash.notice = "Article '#{@article.title}' Updated!"
 
 		redirect_to article_path(@article)
