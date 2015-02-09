@@ -88,8 +88,11 @@ end
 4)
 def caesar_cipher(string,num)
 	string.each_byte { |i|
-	case i when (65..90),(97..122) then offset = i + num
-	(offset > 90 && offset < 97 ? offset = offset - 26 : nil) else offset = i end
+	case i 
+	when (65..90), (97..122) then offset = i + num
+		(offset > 90 && offset < 97 || offset > 122 ? offset = offset - 26 : nil) 
+	else offset = i 
+	end
 	print offset.chr }
 end
 string='What a string!'
@@ -97,3 +100,24 @@ caesar_cipher(string,5)
 
 5)
 =end
+
+def cipher
+	puts "Type some text to encrypt:"
+	string = gets.chomp
+	puts "How much should each letter change?"
+	puts "(Please type a number.)"
+	num = gets.chomp.to_i
+	string.each_byte do |c|
+		case c
+			when (65..90), (97..122)
+				@caesar = c + num
+				if caesar > 90 && caesar < 97 || caesar > 122
+					caesar -= 26
+				elsif caesar < 65 || caesar < 97 && caesar > 90
+					caesar += 26
+			else
+				nil 
+		end
+	end
+		print "Your encoded message is: \n \"#{@caeser.chr}\""
+end
