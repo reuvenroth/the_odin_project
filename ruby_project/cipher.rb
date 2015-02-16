@@ -13,7 +13,7 @@ def cipher(string, num)
 			caesar += c.chr
 		end
 	end
-	puts "Your code is #{caesar}."
+	puts "Your code is: \"#{caesar}\"."
 end
 
 puts "Please type some text for encoding:\n"
