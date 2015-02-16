@@ -33,12 +33,14 @@ rescue
 		puts "\nExiting program. Restart to try again"
 	end
 end
+
+#--Pseudocode--#
 # get string from user √
-# get number from user √
-# each character is shifted by the number
-	# iterate through the string
-	# shift each character by the number
-	# if shift goes past Capital or lowercase range
-		# wrap to beginning of char range
-		# keep shifting until done
-# put the string to screen
+# get shift number from user √
+# each character is shifted by the number √
+	# iterate through the string √
+	# shift each character by the number √
+	# if shift goes past Capital or lowercase range √
+		# wrap to beginning of char range √
+		# keep shifting until done √
+# put the string to screen √
