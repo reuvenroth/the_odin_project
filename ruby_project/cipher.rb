@@ -4,10 +4,7 @@ def cipher(string, num)
 		#puts c.chr #uncomment to log each char
 		case c
 		when (65..90), (97..122)
-			while num > 25
-				puts num
-				num -= 26
-			end
+			num -= 26 while num > 25
 			shift = c + num
 			shift > 90 && shift < 97 || shift > 122 ? shift -= 26 : nil
 
